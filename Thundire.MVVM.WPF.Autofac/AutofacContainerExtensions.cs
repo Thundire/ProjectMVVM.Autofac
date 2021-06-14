@@ -1,24 +1,23 @@
 ﻿using System;
 using Autofac;
 using Autofac.Builder;
+using Thundire.MVVM.WPF.Services.Interfaces;
 using Thundire.MVVM.WPF.Services.ViewService;
 using Thundire.MVVM.WPF.Services.ViewService.Interfaces;
 using Thundire.MVVM.WPF.Services.ViewService.Models;
 
 namespace Thundire.MVVM.WPF.Autofac
 {
-    public static class AutofacContainerExtensions{
-        public static void AddViewHandlerCache<TContainerHandler>(
-            this ContainerBuilder builder,
-            IDIContainerBuilder containerBuilder,
-            Action<IViewRegister> registration) 
-            where TContainerHandler: IDIContainer
+    public static class AutofacContainerExtensions
+    {
+        public static void AddViewHandlerCache( this ContainerBuilder builder, Action<IViewRegister> registration) 
         {
-            builder.RegisterType<TContainerHandler>().As<IDIContainer>().SingleInstance();
-            var viewRegister = new ViewRegister(containerBuilder);
+            var viewRegister = new ViewRegister(new AutofacContainerBuilder(builder));
             registration?.Invoke(viewRegister);
             viewRegister.Build();
-            builder.Register(context => viewRegister).As<IViewRegisterCache>().SingleInstance();
+
+            builder.RegisterType<AutofacContainer>().As<IDIContainer>().SingleInstance();
+            builder.RegisterInstance(viewRegister).As<IViewRegisterCache>();
             builder.RegisterType<ViewHandlerService>().As<IViewHandlerService>();
         }
 
