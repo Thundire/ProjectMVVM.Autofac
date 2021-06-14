@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.2.0" />
-    <PackageReference Include="Thundire.MVVM.WPF" Version="0.0.2" />
+    <PackageReference Include="Thundire.MVVM.WPF" Version="0.0.2.1" />
   </ItemGroup>
 
 </Project>
