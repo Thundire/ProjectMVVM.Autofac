@@ -1,6 +1,6 @@
 ﻿using System;
 using Autofac;
-using Thundire.MVVM.WPF.Services.ViewService.Interfaces;
+using Thundire.MVVM.WPF.Services.Interfaces;
 using Thundire.MVVM.WPF.Services.ViewService.Models;
 
 namespace Thundire.MVVM.WPF.Autofac
