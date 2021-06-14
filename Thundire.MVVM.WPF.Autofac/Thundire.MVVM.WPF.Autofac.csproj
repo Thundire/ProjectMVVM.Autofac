@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.2.0" />
-    <PackageReference Include="Thundire.MVVM.WPF" Version="0.0.1" />
+    <PackageReference Include="Thundire.MVVM.WPF" Version="0.0.2" />
   </ItemGroup>
 
 </Project>
